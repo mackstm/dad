@@ -1,0 +1,22 @@
+#titulo {
+    font-size: 24px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    color:blue;
+    text-decoration: underline;
+}
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+
+}
+
+#p1 {
+    color: red;
+    text-align: right;
+}
+
+#p2 {
+    color: blue;
+}
