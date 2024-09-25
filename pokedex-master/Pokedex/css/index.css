@@ -34,3 +34,81 @@ body {
     font-family: DejaVu Sans Mono;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
+
+#pokedex {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 10px 10px;
+    width: 100%;
+}
+
+.card {
+    border: 2px solid rgb(78, 78, 78);
+    border-radius: 5px;
+    background: linear-gradient(rgb(88, 88, 88), rgb(255, 255, 255));
+    font-family: DejaVu Sans Mono, monospace;
+    text-align: center;
+}
+
+.types {
+    border: 1px solid rgb(255, 217, 0);
+    font-weight: bold;
+    background: linear-gradient(rgb(248, 247, 169), rgb(255, 238, 0))
+}
+
+.card .front {
+    display: none;
+}
+
+.card:hover img {
+    display: none;
+}
+
+.card:hover .front {
+    display: inline-block;
+    animation: resizePokemon 1s infinite alternate;
+}
+
+.stats {
+    border: 1px solid rgb(185, 52, 52);
+    color: white;
+}
+
+.hp {
+    border: 3px solid rgb(0, 100, 0);
+    background-color: green;
+}
+
+.atk {
+    border: 3px solid rgb(136, 136, 0);
+    background-color: rgb(165, 165, 0);
+}
+
+.def {
+    border: 3px solid rgb(0, 100, 0);
+    background-color: orange;
+}
+
+.spatk {
+    border: 3px solid rgb(0, 100, 0);
+    background-color: rgb(46, 154, 190);
+}
+
+.spdef {
+    border: 3px solid rgb(0, 100, 0);
+    background-color: blue;
+}
+
+.spe {
+    border: 3px solid rgb(0, 100, 0);
+    background-color: purple
+}
+
+@keyframes resizePokemon {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.2);
+    }
+}

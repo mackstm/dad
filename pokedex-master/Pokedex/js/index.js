@@ -58,8 +58,15 @@ const showPokedex = async () => {
                 var tipo2 = pokemons[i].pkm_type[aux].type.name;
             else 
                 tipo2 = "";          
-            aux++; 
+            aux++;
         }
+        let hp = pokemons[i].stats[0].base_stat;
+        let atk = pokemons[i].stats[1].base_stat;
+        let def = pokemons[i].stats[2].base_stat;
+        let spatk = pokemons[i].stats[3].base_stat;
+        let spdef = pokemons[i].stats[4].base_stat;
+        let spe = pokemons[i].stats[5].base_stat;
+
         // Para cada Pokemon, se crea una tarjeta con imágenes (vista frontal y trasera), el nombre y los tipos
         // Esta estructura HTML se añade dinámicamente al contenedor pokedex
         pokedex.innerHTML +=    `<div class="card">
@@ -68,6 +75,14 @@ const showPokedex = async () => {
                                     ${pokemons[i].id}. ${pokemons[i].name}<br>
                                     <div class="types">
                                         ${tipo1} ${tipo2}
+                                    </div>
+                                    <div class="stats">
+                                        <div class="hp">HP ${hp}</div>
+                                        <div class="atk">Atk ${atk}</div>
+                                        <div class="def">Def ${def}</div>
+                                        <div class="spatk">SpAtk ${spatk}</div>
+                                        <div class="spdef">SpDef ${spdef}</div>
+                                        <div class="spe">Spe ${spe}</div>
                                     </div>
                                 </div>`
     }
