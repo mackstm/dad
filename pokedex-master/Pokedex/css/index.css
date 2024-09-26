@@ -85,22 +85,22 @@ body {
 }
 
 .def {
-    border: 3px solid rgb(0, 100, 0);
+    border: 3px solid rgb(133, 86, 0);
     background-color: orange;
 }
 
 .spatk {
-    border: 3px solid rgb(0, 100, 0);
+    border: 3px solid rgb(16, 92, 118);
     background-color: rgb(46, 154, 190);
 }
 
 .spdef {
-    border: 3px solid rgb(0, 100, 0);
+    border: 3px solid rgb(0, 0, 123);
     background-color: blue;
 }
 
 .spe {
-    border: 3px solid rgb(0, 100, 0);
+    border: 3px solid rgb(62, 0, 62);
     background-color: purple
 }
 
