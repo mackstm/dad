@@ -117,36 +117,51 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"assets/songs/song2.mp3":[function(require,module,exports) {
+})({"assets/songs/song1.mp3":[function(require,module,exports) {
+module.exports = "/song1.c629fdde.mp3";
+},{}],"assets/songs/song2.mp3":[function(require,module,exports) {
 module.exports = "/song2.fba8dc06.mp3";
 },{}],"assets/songs/song3.mp3":[function(require,module,exports) {
 module.exports = "/song3.809570ba.mp3";
-},{}],"assets/songs/song1.mp3":[function(require,module,exports) {
-module.exports = "/song1.c629fdde.mp3";
 },{}],"assets/songs/*.mp3":[function(require,module,exports) {
 module.exports = {
+  "song1": require("./song1.mp3"),
   "song2": require("./song2.mp3"),
-  "song3": require("./song3.mp3"),
-  "song1": require("./song1.mp3")
+  "song3": require("./song3.mp3")
 };
-},{"./song2.mp3":"assets/songs/song2.mp3","./song3.mp3":"assets/songs/song3.mp3","./song1.mp3":"assets/songs/song1.mp3"}],"js/Song.js":[function(require,module,exports) {
+},{"./song1.mp3":"assets/songs/song1.mp3","./song2.mp3":"assets/songs/song2.mp3","./song3.mp3":"assets/songs/song3.mp3"}],"js/Song.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = void 0;
+exports.play_song = play_song;
 function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
 function _defineProperties(e, r) { for (var t = 0; t < r.length; t++) { var o = r[t]; o.enumerable = o.enumerable || !1, o.configurable = !0, "value" in o && (o.writable = !0), Object.defineProperty(e, _toPropertyKey(o.key), o); } }
 function _createClass(e, r, t) { return r && _defineProperties(e.prototype, r), t && _defineProperties(e, t), Object.defineProperty(e, "prototype", { writable: !1 }), e; }
 function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == _typeof(i) ? i : i + ""; }
 function _toPrimitive(t, r) { if ("object" != _typeof(t) || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != _typeof(i)) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
 function _classCallCheck(a, n) { if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function"); }
-var Song = exports.default = /*#__PURE__*/_createClass(function Song(songKey, songValue) {
+var Song = exports.default = /*#__PURE__*/_createClass(function Song(k_song, v_song, c_song) {
   _classCallCheck(this, Song);
-  this.songKey = songKey;
-  this.songValue = songValue;
+  this.element = document.querySelector(k_song);
+  this.audio = new Audio(v_song);
+  this.album = document.querySelector(c_song);
 });
+function play_song(song) {
+  song.element.onclick = function () {
+    if (song.audio.paused) {
+      song.album.querySelector(".vinyl").style.transition = "0.2s linear";
+      song.album.querySelector(".vinyl").style.transform = 'translateX(190px)';
+      song.audio.play();
+    } else {
+      song.album.querySelector(".vinyl").style.removeProperty("transition");
+      song.album.querySelector(".vinyl").style.removeProperty("transform");
+      song.audio.pause();
+    }
+  };
+}
 },{}],"js/Player.js":[function(require,module,exports) {
 "use strict";
 
@@ -179,7 +194,8 @@ var Player = exports.default = /*#__PURE__*/_createClass(function Player(map) {
       value = _Object$entries$_i[1];
     var songKey = key;
     var songValue = value;
-    var song = new _Song.default(songKey, songValue);
+    var songCover = ".c" + aux;
+    var song = new _Song.default(songKey, songValue, songCover);
     (0, _Song.play_song)(song);
     aux++;
   }
@@ -188,9 +204,8 @@ var Player = exports.default = /*#__PURE__*/_createClass(function Player(map) {
 "use strict";
 
 var _ = _interopRequireDefault(require("../assets/songs/*.mp3"));
-var _Player = require("./Player.js");
+var _Player = _interopRequireDefault(require("./Player.js"));
 function _interopRequireDefault(e) { return e && e.__esModule ? e : { default: e }; }
-Object.keys(_.default);
 var map = {};
 var aux = 1;
 for (var _i = 0, _Object$keys = Object.keys(_.default); _i < _Object$keys.length; _i++) {
@@ -201,6 +216,7 @@ for (var _i = 0, _Object$keys = Object.keys(_.default); _i < _Object$keys.length
 }
 
 //Crea un objeto Player y pasa el objeto map
+var player = new _Player.default(map);
 },{"../assets/songs/*.mp3":"assets/songs/*.mp3","./Player.js":"js/Player.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -226,7 +242,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "36901" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "44801" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

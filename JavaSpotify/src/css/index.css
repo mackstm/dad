@@ -1,5 +1,6 @@
 
 .flex {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -26,5 +27,42 @@
 .c3 {
     background-image: url("../assets/images/cover3.jpg");
     background-size: cover;
+}
+
+.vinyl {
+    background-color: black;
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    z-index: -1;
+    transition: 0.2s linear;
+}
+
+.cover:hover .vinyl {
+    transition: 0.4s linear;
+    transform: translateX(50px);
+}
+
+
+
+.detail {
+    background-color: orange;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+}
+
+.label {
+    background-color: yellow;
+    width: 70px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.hole {
+    background-color: black;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
 }
 

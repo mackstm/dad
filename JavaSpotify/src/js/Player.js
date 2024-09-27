@@ -8,8 +8,8 @@ export default class Player {
         for (var [key, value] of Object.entries(map)) {
             let songKey = key;
             let songValue = value;
-            let song = new Song(songKey, songValue);
-
+            let songCover = ".c" + aux;
+            let song = new Song(songKey, songValue, songCover);
             play_song(song);
 
             aux++;
