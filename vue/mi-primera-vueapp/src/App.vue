@@ -1,27 +1,12 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <h1>hola mundo</h1>
-  <!-- <HelloWorld msg="Hola mundo"/> -->
+  <h1>Listado de posts: </h1>
+  <PostContainer/>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    //HelloWorld
-  }
-}
+<script setup>
+  import PostContainer from './components/PostContainer.vue';
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
